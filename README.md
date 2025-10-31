@@ -38,7 +38,7 @@ This project detects human emotions (Happy, Sad, Angry, Neutral) from voice reco
 
 -NumPy, Pandas
 
--Streamlit (for the frontend)
+
 
 
 
