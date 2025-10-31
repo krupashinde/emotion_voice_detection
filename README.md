@@ -13,21 +13,20 @@ This project detects human emotions (Happy, Sad, Angry, Neutral) from voice reco
 
 ## 📂 Project Directory
 
-emotion_voice_project/
-│
-├── data/
-│   ├── happy/
-│   ├── sad/
-│   ├── angry/
-│   └── neutral/
-│
-├── app.py
-├── train.py
-├── requirements.txt
-├── emotion_model_small.h5
-├── emotion_voice_project.keras
-├── .gitignore
-└── README.md
+- emotion_voice_project/
+  - data/
+    - happy/
+    - sad/
+    - angry/
+    - neutral/
+  - app.py
+  - train.py
+  - requirements.txt
+  - emotion_model_small.h5
+  - emotion_voice_project.keras
+  - .gitignore
+  - README.md
+
 
 
 
