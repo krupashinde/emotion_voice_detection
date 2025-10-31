@@ -28,6 +28,18 @@ This project detects human emotions (Happy, Sad, Angry, Neutral) from voice reco
   - README.md
 
 
+## Technologies Used
+
+-Python
+
+-TensorFlow / Keras
+
+-Librosa
+
+-NumPy, Pandas
+
+-Streamlit (for the frontend)
+
 
 
 
