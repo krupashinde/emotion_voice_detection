@@ -7,21 +7,21 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
 
-# --- Paths ---
+#  Paths
 DATA_DIR = "data"
 emotions = ["happy", "sad", "angry", "neutral"]
 
-# --- Extract features ---
+#  Extract features
 def extract_features(file_path):
     try:
         data, sample_rate = librosa.load(file_path, duration=3, offset=0.5)
         mfccs = np.mean(librosa.feature.mfcc(y=data, sr=sample_rate, n_mfcc=40).T, axis=0)
         return mfccs
     except Exception as e:
-        print("❌ Error extracting", file_path, ":", e)
+        print(" Error extracting", file_path, ":", e)
         return None
 
-# --- Load data ---
+# Load data
 X, y = [], []
 for emotion in emotions:
     folder = os.path.join(DATA_DIR, emotion)
@@ -35,14 +35,14 @@ for emotion in emotions:
 X = np.array(X)
 y = np.array(y)
 
-print(f"✅ Loaded {len(X)} samples.")
+print(f"Loaded {len(X)} samples.")
 
-# --- Encode labels ---
+#  Encode labels 
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
 y_categorical = to_categorical(y_encoded)
 
-# --- Model ---
+#  Model 
 model = Sequential([
     Dense(256, input_shape=(40,), activation='relu'),
     Dropout(0.3),
@@ -53,9 +53,9 @@ model = Sequential([
 
 model.compile(loss='categorical_crossentropy', optimizer=Adam(0.0005), metrics=['accuracy'])
 
-# --- Train ---
+#  Train
 model.fit(X, y_categorical, epochs=150, batch_size=32, validation_split=0.2)
 
-# --- Save ---
+#  Save 
 model.save("emotion_voice_project.keras")
-print("🎯 Model trained & saved successfully!")
+print(" Model trained & saved successfully!")
